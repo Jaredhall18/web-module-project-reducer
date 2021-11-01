@@ -7,7 +7,7 @@ import TotalDisplay from './components/TotalDisplay';
 import CalcButton from './components/CalcButton';
 
 //import actions
-import { addOne, applyNumber, changeOperation } from './actions'
+import { addOne, applyNumber, changeOperation, clearDisplay } from './actions'
 
 function App() {
   const [ state, dispatch ] = useReducer(reducer, initialState);
@@ -19,6 +19,10 @@ function App() {
 
   const handleChangeOperation= (value) => {
     dispatch(changeOperation(value))
+  }
+
+  const handleClearDisplay= () => {
+    dispatch(clearDisplay())
   }
 
   return (
@@ -40,7 +44,7 @@ function App() {
             <div className="row">
               <CalcButton value={"M+"}/>
               <CalcButton value={"MR"}/>
-              <CalcButton value={"MC"}/>
+              <CalcButton  value={"MC"}/>
             </div>
 
             <div className="row">
@@ -68,7 +72,7 @@ function App() {
             </div>
 
             <div className="row ce_button">
-              <CalcButton value={"CE"}/>
+              <CalcButton onClick={()=>handleClearDisplay()} value={"CE"}/>
             </div>
 
           </form>
