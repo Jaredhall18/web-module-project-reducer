@@ -8,7 +8,7 @@ export const initialState = {
 
 const calculateResult = (num1, num2, operation) => {
     switch(operation) {
-        case(ADD_ONE):
+        case("+"):
             return num1 + num2;
         case("*"):
             return num1 * num2;
